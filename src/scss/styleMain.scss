@@ -1,0 +1,394 @@
+
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+}
+
+:root {
+    --header-footer-color: #12146b;
+    --main-bg-color: #191c94;
+    --text-color: white;
+    --mandatory-color: #ff4e00;
+    --dark-color: #070f3d;
+    --note-color: #070f3d;
+    --note-bg-hover-color: #00a0d5;
+    --table-selected-color: #1b62c2;
+    --table-selected-hover-color: #14478c;
+    --table-button-bg-color: #00a0d5;
+    --error-color: #ff4e00;
+}
+
+html body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Calibri;
+    
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr auto;
+}
+
+
+header {
+    background-color: var(--header-footer-color);
+    
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto;
+}
+
+header h1{
+    text-align: center;
+    color: var(--text-color);
+    font-size: 50px;
+    font-family: Calibri;
+    margin: 0;
+    padding: 50px;
+    box-sizing: border-box;
+    
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+div#user {
+    width: auto;
+    margin: 10px;
+    text-align: right;
+    color: var(--text-color);
+    font-size: 20px;
+    font-family: Calibri;
+    
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+div#user div{
+    margin: 7px;
+}
+
+div#user div.styleLink{
+    width: 90px;
+    margin: 0px;
+    float: right;
+}
+
+nav li
+{
+    width: 150px;
+    margin: 10px;
+}
+
+nav {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav a, .navLink {
+    display: block;
+    background-color: var(--dark-color);
+    color: white;
+    transition: background-color linear 500ms;
+    margin: 7px;
+    padding: 5px;
+    text-decoration: none;
+    font-family: Calibri;
+    font-size: 20px;
+}
+
+nav a:hover, .navLink:hover {
+    background-color: white;
+    color: #070f3d;
+}
+
+nav a#pageSelected, .navLink#pageSelected {
+    background-color: white;
+    color: #10111f;
+    transition: none;
+}
+
+
+main {
+    background-color: var(--main-bg-color);
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    display: grid;
+    justify-content: center;
+    align-content: start;
+    
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+
+footer {
+    background-color: var(--header-footer-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px;
+    
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#currentDate {
+    color: var(--text-color);
+    font-size: 25px;
+    margin: 10px;
+    text-align: center;
+}
+
+/*
+    Calendar
+*/
+
+table {
+    background-color: white;
+    color: black;
+}
+
+tr {
+    margin: 0px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+    margin: 0px;
+}
+
+td div {
+    background-color: white;
+}
+
+td input {
+    cursor: pointer;
+}
+
+tbody td:hover
+{
+    background-color: grey;
+}
+
+
+tbody td.selectedTab {
+    background-color: var(--table-selected-color);
+}
+
+tbody td.selectedTab:hover {
+    background-color: var(--table-selected-hover-color);
+}
+
+.deactivatedCellTab{
+    color: grey;
+}
+
+td div, .activeCellTab, .todayTab, .noteTab, .buttonTab {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+
+    border: 3px solid white;
+    border-color: white;
+
+    font-family: Calibri;
+    font-size: 27px;
+}
+
+td div.deactivatedCellTab {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+td div.deactivatedCellTab line {
+    stroke: grey;
+}
+
+.activeCellTab, .todayTab, .noteTab, .buttonTab{
+    margin: 0;
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.activeCellTab{
+    background-color: white;
+}
+
+.todayTab {
+    background-color: var(--table-selected-color);
+}
+
+.noteTab {
+    background-color: #ead916;
+}
+
+td form{
+    
+    align-items: stretch;
+}
+
+.buttonTab {
+    background-color: var(--table-button-bg-color);
+    display: block;
+    color: black;
+}
+
+.buttonTab:hover {
+    background-color: var(--dark-color);
+    color: white;
+    cursor: pointer;
+}
+
+/*
+    Forms
+*/
+
+form label {
+    display: block;
+    font-size: 25px;
+    margin: 10px 10px 0px 10px;
+    color: var(--text-color);
+}
+
+
+form p {
+    font-size: 15px;
+    margin: 10px;
+    color: var(--text-color);
+}
+form p.error {
+    color: var(--error-color);
+}
+
+form label input {
+    border: none;
+    display: block;
+    padding: 5px;
+    font-size: 25px;
+}
+form label input.radioBut
+{
+    display: inline;
+}
+form label input.error {
+    background-color: var(--error-color);
+}
+
+form textarea {
+    border: none;
+    font-size: 17px;
+    margin: 0px 10px 10px 10px;
+    padding: 10px;
+}
+
+.threeDots{
+    text-align: center;
+    margin: 5px;
+    padding: 2px 5px;
+    font-family: Calibri;
+    font-size: 20px;
+    color: white;
+}
+
+.outputText{
+    display: grid;
+    justify-items: center;
+}
+
+.pageButtons{
+    margin: 10px;
+    padding: 10px;
+}
+
+.currentPage{
+    text-align: center;
+    margin: 5px;
+    padding: 2px 5px;
+    font-family: Calibri;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.paging {
+    text-align: center;
+    margin: 5px;
+    padding: 2px 5px;
+    font-family: Calibri;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+}
+
+.paging:hover {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.note{
+    border: none;
+    font-size: 30px;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    text-decoration: none;
+    color: var(--note-color);
+    display: block;
+    width: 500px;
+}
+
+.note:hover{
+    color: black;
+    cursor: pointer;
+    background-color: var(--note-bg-hover-color);
+}
+
+.submitForm {
+    border: none;
+    font-size: 25px;
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--dark-color);
+    text-decoration: none;
+    color: white;
+}
+
+
+.submitForm:hover {
+    background-color: white;
+    color: var(--dark-color);
+    cursor: pointer;
+}
+
+.mandatory {
+    color: var(--mandatory-color);
+}
