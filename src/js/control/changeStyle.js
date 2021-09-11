@@ -23,6 +23,7 @@ class ChangeStyle extends LoggedIn
         let user = this._app.user;
         let formData = new FormData(form);
         user.style = formData.get("style");
+        this._app._users.save();
         setStyle(user.style);
     }
 }
