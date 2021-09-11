@@ -21,13 +21,13 @@ class DiaryNotebook extends Controller
         let selectedDay = this._calendar.getSelectedDay();
         if(selectedDay == -1) {
             this._view.clearNote();
-            return;
-        }
-        let note = this._findNote();
-        if(note == null) {
-            this._view.noneNote();
         } else {
-            this._view.existingNote(note.name, note.description);
+            let note = this._findNote();
+            if(note == null) {
+                this._view.noneNote();
+            } else {
+                this._view.existingNote(note.name, note.description);
+            }
         }
         let date = this._calendar.getDate().makeCopy();
         this._calendar.noteDays = this._app.user.diaryNotes
@@ -42,9 +42,10 @@ class DiaryNotebook extends Controller
     submitForm(submitter) {
         let selectedDay = this._calendar.getSelectedDay();
         if(selectedDay == -1) {
-            this._view.clearNote();
+            this.update();
             return;
         }
+
         if(submitter.name == "createNote") {
             this._view.createNote();
         }
