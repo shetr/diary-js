@@ -1,21 +1,25 @@
-import { Router } from "./router.js";
-import { AppStorage } from "./appStorage.js";
+import { Router } from "./router";
+import { AppStorage } from "./appStorage";
 
-import { Main } from "./main.js";
-import { Login } from "./login.js";
-import { Register } from "./register.js";
-import { Diary } from "./diary.js";
-import { Notebook } from "./notebook.js";
-import { Logout } from "./logout.js";
-import { ChangeStyle } from "./changeStyle.js";
+import { Main } from "./main";
+import { Login } from "./login";
+import { Register } from "./register";
+import { Diary } from "./diary";
+import { Notebook } from "./notebook";
+import { Logout } from "./logout";
+import { ChangeStyle } from "./changeStyle";
 
-import { User } from "../model/user.js";
-import { CustomDate } from "../model/date.js";
-import { Note } from "../model/note.js";
-import { DiaryNote } from "../model/diaryNote.js";
+import { User } from "../model/user";
+import { CustomDate } from "../model/date";
+import { Note } from "../model/note";
+import { DiaryNote } from "../model/diaryNote";
 
 class App
 {
+    router: Router;
+    _users: AppStorage;
+    user: User | null;
+
     constructor() {
         let routes = {
             main: new Main(this),
