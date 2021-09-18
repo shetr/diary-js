@@ -7,5 +7,8 @@ Deployed on [github pages](https://shetr.github.io/diary-js/).
 
 * move to typescript
 * try React
+* inject current version number to code
 * divide scss to multiple files 
 * try setting up working babel (there is some problem with async/await, so no babel currently)
+* remove eslint - seems it's not needed
+* maybe try source map ts files for better debuging
