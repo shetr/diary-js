@@ -1,8 +1,12 @@
 
 class StorageObject
 {
-    constructor() {
-        this._class = this.__proto__.constructor.name;
+    constructor(storageClassName) {
+        this._storageClassName = storageClassName;
+    }
+
+    getStorageClassName() {
+        return this._storageClassName;
     }
 }
 

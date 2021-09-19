@@ -10,4 +10,3 @@ Deployed on [github pages](https://shetr.github.io/diary-js/).
 * divide scss to multiple files 
 * try setting up working babel (there is some problem with async/await, so no babel currently)
 * maybe try source map ts files for better debuging
-* repair wrong local storage class names

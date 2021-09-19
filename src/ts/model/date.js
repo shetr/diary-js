@@ -39,7 +39,7 @@ let dayNamesShots = [
 class CustomDate extends StorageObject
 {
     constructor() {
-        super();
+        super("Date");
         this.day = 1;
         this.month = 1;
         this.year = 1;

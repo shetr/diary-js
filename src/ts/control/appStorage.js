@@ -6,7 +6,7 @@ class AppStorage
         this.storedClasses = {};
         this.data = [];
         storedClasses.forEach(storedClass => {
-            this.storedClasses[storedClass.name] = storedClass;
+            this.storedClasses[(new storedClass()).getStorageClassName()] = storedClass;
         });
     }
 
@@ -20,8 +20,8 @@ class AppStorage
             this.save();
         } else {
             this.data = JSON.parse(rawData, (key, value) => {
-                if(typeof value === 'object' && "_class" in value) {
-                    let newObject = new this.storedClasses[value._class]();
+                if(typeof value === 'object' && "_storageClassName" in value) {
+                    let newObject = new this.storedClasses[value._storageClassName]();
                     return Object.assign(newObject, value);
                 }
                 else {

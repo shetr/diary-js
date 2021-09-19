@@ -3,7 +3,7 @@ import { StorageObject } from "../control/storageObject.js";
 class DiaryNote extends StorageObject
 {
     constructor() {
-        super();
+        super("DiaryNote");
         this.date = null;
         this.name = "";
         this.description = "";

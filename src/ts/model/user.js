@@ -3,7 +3,7 @@ import { StorageObject } from "../control/storageObject.js";
 class User extends StorageObject
 {
     constructor() {
-        super();
+        super("User");
         this.email = "";
         this.passwordHash = "";
         this.notes = [];
