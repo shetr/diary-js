@@ -5,7 +5,7 @@ const projectInfo = {
 "packageInfo": {
   "name": "diary-js",
   "homepage": "http://shetr.github.io/diary-js",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Reworked version of zwa-diary-js.",
   "main": "src/ts/index.ts",
   "scripts": {
