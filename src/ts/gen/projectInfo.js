@@ -1,4 +1,7 @@
-{
+
+const buildDate = new Date(2021, 8, 19);
+
+const packageInfo = {
   "name": "diary-js",
   "homepage": "http://shetr.github.io/diary-js",
   "version": "1.0.6",
@@ -48,3 +51,5 @@
     "source-map-loader": "^3.0.0"
   }
 }
+;
+        
