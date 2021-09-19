@@ -67,7 +67,8 @@ class CustomDate extends StorageObject
     }
 
     getDayInWeekName() {
-        return dayNames[this.getDayInWeek()];
+        var options = { weekday: 'long'};
+        return new Intl.DateTimeFormat('en-US', options).format(this.toDate()).toString();
     }
 
     getDayInWeekShortName() {
@@ -100,8 +101,12 @@ class CustomDate extends StorageObject
         this.day = date.getDate();
     }
 
+    toDate() {
+        return new Date(this.year, this.month, this.day);
+    }
+
     toString() {
-        return dayNames[this.getDayInWeek()]+" "+String(this.day)+". "+monthNames[this.month]+" "+String(this.year);
+        return this.getDayInWeekName()+" "+String(this.day)+". "+monthNames[this.month]+" "+String(this.year);
     }
 
     compare(date) {

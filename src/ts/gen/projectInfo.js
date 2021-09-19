@@ -5,7 +5,7 @@ const projectInfo = {
 "packageInfo": {
   "name": "diary-js",
   "homepage": "http://shetr.github.io/diary-js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Reworked version of zwa-diary-js.",
   "main": "src/ts/index.ts",
   "scripts": {
@@ -36,7 +36,7 @@ const projectInfo = {
     "autoprefixer": "^10.3.4",
     "browser-sync": "^2.27.5",
     "gh-pages": "^3.2.3",
-    "htmlnano": "^1.0.1",
+    "htmlnano": "^1.1.1",
     "node-sass": "^6.0.1",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
@@ -45,15 +45,14 @@ const projectInfo = {
     "posthtml": "^0.16.5",
     "posthtml-cli": "^0.10.0",
     "posthtml-modules": "^0.7.4",
+    "source-map-loader": "^3.0.0",
     "stylelint": "^13.13.1",
     "ts-loader": "^9.2.5",
     "typescript": "^4.4.3",
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0"
   },
-  "dependencies": {
-    "source-map-loader": "^3.0.0"
-  }
+  "dependencies": {}
 }
 
 };
