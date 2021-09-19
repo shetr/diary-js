@@ -1,20 +1,21 @@
 
-const buildDate = new Date(2021, 8, 19);
-
-const packageInfo = {
+// WARNING: Don't make changes to this file. It will be generated automatically with each build.
+const projectInfo = {
+"buildDate": new Date(2021, 8, 19),
+"packageInfo": {
   "name": "diary-js",
   "homepage": "http://shetr.github.io/diary-js",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Reworked version of zwa-diary-js.",
   "main": "src/ts/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gen-project-info": "node scripts/gen-project-info.js src/ts/gen/projectInfo.js",
+    "gen": "node scripts/gen-project-info.js src/ts/gen/projectInfo.js",
     "css:scss": "node-sass --output-style compressed -o dist src/scss",
     "css:autoprefixer": "postcss -u autoprefixer -r dist/*.css",
     "css:lint": "stylelint src/scss/*.scss --syntax scss || true",
     "build:css": "npm run css:lint && npm run css:scss && npm run css:autoprefixer",
-    "build:js": "npm run gen-project-info && webpack --mode=production",
+    "build:js": "npm run gen && webpack --mode=production",
     "build:html": "posthtml -c posthtml.json",
     "watch:css": "onchange \"src/scss\" -- npm run build:css",
     "watch:js": "onchange \"src/js\" -- webpack --mode=development",
@@ -26,7 +27,10 @@ const packageInfo = {
     "build-deploy": "npm run build && npm run deploy"
   },
   "keywords": [],
-  "author": "Petr Šádek",
+  "author": {
+    "name": "Petr Šádek",
+    "email": "shetr.git@gmail.com"
+  },
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.3.4",
@@ -51,5 +55,7 @@ const packageInfo = {
     "source-map-loader": "^3.0.0"
   }
 }
-;
+
+};
+export { projectInfo };
         

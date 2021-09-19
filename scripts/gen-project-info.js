@@ -14,9 +14,12 @@ if(process.argv.length != 3) {
         let date = new Date();
 
         const outContent = `
-const buildDate = new Date(${date.getFullYear()}, ${date.getMonth()}, ${date.getDate()});
-
-const packageInfo = ${data};
+// WARNING: Don't make changes to this file. It will be generated automatically with each build.
+const projectInfo = {
+"buildDate": new Date(${date.getFullYear()}, ${date.getMonth()}, ${date.getDate()}),
+"packageInfo": ${data}
+};
+export { projectInfo };
         `;
 
         fs.writeFile(outFile, outContent, err => {
