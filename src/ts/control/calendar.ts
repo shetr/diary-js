@@ -1,14 +1,20 @@
-import { Controller } from "./controller.js";
-import { CalendarView } from "../view/calendar.js";
-import { CustomDate } from "../model/date.js";
+import { App } from "./app"
+import { Controller } from "./controller";
+import { CalendarView } from "../view/calendar";
+import { CustomDate } from "../model/date";
 
 class Calendar extends Controller
 {
-    constructor(app) {
+    public noteDays: number[];
+    private _view: CalendarView;
+    private _selectedDay: number;
+    private _date: CustomDate;
+
+    constructor(app: App) {
         super(app);
         this._view = new CalendarView();
         this._selectedDay = -1;
-        this._date = null;
+        this._date = new CustomDate;
         this.noteDays = [];
     }
 
@@ -31,7 +37,7 @@ class Calendar extends Controller
         return this._date;
     }
 
-    submitForm(submitter) {
+    submitForm(submitter: any) { // TODO: replace any with some type
         if(submitter.name == "selectDay") {
             let selectedDay = parseInt(submitter.value);
             this._view.deselectCell(this._selectedDay);

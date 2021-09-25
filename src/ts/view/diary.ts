@@ -1,6 +1,11 @@
 
 class DiaryView
 {
+    private _headlineEl: any;
+    private _mainEl: any;
+    private _formEl: any;
+    private _headline: string;
+
     constructor(){
         this._headlineEl = document.querySelector("header h1");
         this._mainEl = document.querySelector("main");
@@ -23,7 +28,7 @@ class DiaryView
         this._formEl = document.querySelector("form");
     }
 
-    _diary() {
+    private _diary() {
         return String.raw`
             <form method="post" action="">
                 <div id="calendar"></div>

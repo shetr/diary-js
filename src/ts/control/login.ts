@@ -1,9 +1,13 @@
-import { LoginView } from "../view/login.js";
-import { LoggedOut } from "./loggedOut.js";
+import { App } from "./app"
+import { LoginView } from "../view/login";
+import { LoggedOut } from "./loggedOut";
+import { User } from "../model/user";
 
 class Login extends LoggedOut
 {
-    constructor(app) {
+    private _view: LoginView;
+
+    constructor(app: App) {
         super(app);
         this._view = new LoginView();
     }
@@ -12,12 +16,12 @@ class Login extends LoggedOut
         let progress = super.init();
         if(progress) {
             this._view.init();
-            this._view.getForm().addEventListener("submit", (e) => {e.preventDefault(); this._submitForm();});
+            this._view.getForm().addEventListener("submit", (e: SubmitEvent) => {e.preventDefault(); this._submitForm();});
         }
         return progress;
     }
 
-    _submitForm() {
+    private _submitForm() {
         let email = this._view.getEmailInput().value;
         let password = this._view.getPasswordInput().value;
         let user = this._findUser(email);
@@ -35,7 +39,7 @@ class Login extends LoggedOut
         });
     }
 
-    _findUser(email) {
+    private _findUser(email: string): User | null {
         let users = this._app.getUsers().getData();
         let foundUser = null;
         users.forEach((user) => {

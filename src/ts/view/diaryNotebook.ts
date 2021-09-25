@@ -1,7 +1,12 @@
-import { CustomDate } from "../model/date.js";
+import { CustomDate } from "../model/date";
 
 class DiaryNoteView
 {
+    private _diaryNoteWrapperEl: any;
+    private _nameEl: any;
+    private _descriptionEl: any;
+    private _errorEl: any;
+
     constructor(){
         this._diaryNoteWrapperEl = null;
         this._nameEl = null;
@@ -23,20 +28,20 @@ class DiaryNoteView
     createNote() {
         this._diaryNoteWrapperEl.innerHTML = this._createNote();
         this._initFormData("", "");
-        this._nameEl.addEventListener("blur", e => this.clearErrors());
-        this._descriptionEl.addEventListener("blur", e => this.clearErrors());
+        this._nameEl.addEventListener("blur", (e: FocusEvent) => this.clearErrors());
+        this._descriptionEl.addEventListener("blur", (e: FocusEvent) => this.clearErrors());
     }
-    changeNote(name, description) {
+    changeNote(name: string, description: string) {
         this._diaryNoteWrapperEl.innerHTML = this._changeNote();
         this._initFormData(name, description);
-        this._nameEl.addEventListener("blur", e => this.clearErrors());
-        this._descriptionEl.addEventListener("blur", e => this.clearErrors());
+        this._nameEl.addEventListener("blur", (e: FocusEvent) => this.clearErrors());
+        this._descriptionEl.addEventListener("blur", (e: FocusEvent) => this.clearErrors());
     }
-    existingNote(name, description) {
+    existingNote(name: string, description: string) {
         this._diaryNoteWrapperEl.innerHTML = this._existingNote();
         this._initFormData(name, description);
     }
-    _initFormData(name, description) {
+    private _initFormData(name: string, description: string) {
         this._nameEl = document.querySelector("input#name");
         this._descriptionEl = document.querySelector("textarea#description");
         this._errorEl = document.querySelector("p.error");
@@ -57,22 +62,22 @@ class DiaryNoteView
         this._nameEl.classList.remove('error');
         this._descriptionEl.classList.remove('error');
     }
-    setNameError(message) {
+    setNameError(message: string) {
         this._errorEl.textContent = message;
         this._nameEl.classList.add('error');
     }
-    setDescriptionError(message) {
+    setDescriptionError(message: string) {
         this._errorEl.textContent = message;
         this._descriptionEl.classList.add('error');
     }
 
-    _noneNote() {
+    private _noneNote() {
         return String.raw`
             <input class="submitForm" type="submit" name="createNote" value="Create note">
         `;
     }
 
-    _createNote() {
+    private _createNote() {
         return String.raw`
             <label>
                 Name: <span class="mandatory">*</span>
@@ -90,7 +95,7 @@ class DiaryNoteView
         `;
     }
 
-    _changeNote() {
+    private _changeNote() {
         return String.raw`
             <label>
                 Name: <span class="mandatory">*</span>
@@ -108,7 +113,7 @@ class DiaryNoteView
         `;
     }
 
-    _existingNote() {
+    private _existingNote() {
         return String.raw`
             <label>
                 Name:

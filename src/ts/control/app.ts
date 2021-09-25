@@ -16,9 +16,9 @@ import { DiaryNote } from "../model/diaryNote";
 
 class App
 {
-    router: Router;
-    _users: AppStorage;
-    user: User | null;
+    public user: User | null;
+    public router: Router;
+    private _users: AppStorage;
 
     constructor() {
         let routes = {
@@ -44,7 +44,7 @@ class App
         this.user = null;
     }
 
-    getUsers() {
+    getUsers() { // TODO: rethink the mutability and getter
         return this._users;
     }
     

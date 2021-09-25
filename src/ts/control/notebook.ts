@@ -1,9 +1,11 @@
-import { LoggedIn } from "./loggedIn.js";
-import { NotebookView } from "../view/notebook.js";
+import { App } from "./app"
+import { LoggedIn } from "./loggedIn";
+import { NotebookView } from "../view/notebook";
 
 class Notebook extends LoggedIn
 {
-    constructor(app) {
+    private _view: NotebookView;
+    constructor(app: App) {
         super(app);
         this._view = new NotebookView();
     }

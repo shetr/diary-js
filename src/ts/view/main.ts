@@ -1,8 +1,15 @@
-import { CustomDate } from "../model/date.js";
+import { CustomDate } from "../model/date";
 import { projectInfo } from "../gen/projectInfo";
 
 class MainView
 {
+    private _headlineEl: any;
+    private _mainEl: any;
+    private _footerEl: any;
+    private _formEl: any;
+    private _headline: string;
+    private _footer: string;
+
     constructor(){
         this._headlineEl = document.querySelector("header h1");
         this._mainEl = document.querySelector("main");
@@ -31,7 +38,7 @@ class MainView
         this._formEl = document.querySelector("form");
     }
 
-    _basicCalendar() {
+    private _basicCalendar() {
         let date = CustomDate.createCurrentDate();
         return String.raw`
             <div id="currentDate">Today is ${date.toString()}</div>

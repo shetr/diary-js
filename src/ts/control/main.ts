@@ -1,10 +1,14 @@
-import { LoggedOut } from "./loggedOut.js";
-import { MainView } from "../view/main.js";
-import { Calendar } from "./calendar.js";
+import { App } from "./app"
+import { LoggedOut } from "./loggedOut";
+import { MainView } from "../view/main";
+import { Calendar } from "./calendar";
 
 class Main extends LoggedOut
 {
-    constructor(app) {
+    private _view: MainView;
+    private _calendar: Calendar;
+
+    constructor(app: App) {
         super(app);
         this._view = new MainView();
         this._calendar = new Calendar(app);
@@ -16,7 +20,7 @@ class Main extends LoggedOut
             this._view.init();
             this._calendar.init();
             let form = this._view.getForm();
-            form.addEventListener("submit", (e) => {e.preventDefault(); this._calendar.submitForm(e.submitter);});
+            form.addEventListener("submit", (e: SubmitEvent) => {e.preventDefault(); this._calendar.submitForm(e.submitter);});
         }
         return progress;
     }

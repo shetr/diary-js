@@ -1,29 +1,34 @@
-import { StorageObject } from "../control/storageObject.js";
+import { StorageObject } from "../control/storageObject";
+import { DiaryNote } from "./diaryNote";
+import { Note } from "./note";
 
-class User extends StorageObject
+export type UserStyle = "blue" | "green";
+
+export class User extends StorageObject // TODO: change visibility and mutability of attributes
 {
+    public email = "";
+    public passwordHash = ""; // TODO: maybe replace with some PasswordHash type
+    public notes: Note[] = [];
+    public diaryNotes: DiaryNote[] = [];
+    public style: UserStyle = "blue";
+
     constructor() {
         super("User");
-        this.email = "";
-        this.passwordHash = "";
-        this.notes = [];
-        this.diaryNotes = [];
-        this.style = "blue";
     }
 
-    async doesPasswordMatch(password) {
+    async doesPasswordMatch(password: string) {
         let passwordHash = await createHash(password);
         return this.passwordHash == passwordHash;
     }
 
-    static async createWithPassword(email, password) {
+    static async createWithPassword(email: string, password: string) {
         let user = new User();
         user.email = email;
         user.passwordHash = await createHash(password); 
         return user;
     }
 
-    static isEmailIncorrect(email) {
+    static isEmailIncorrect(email: string) { // TODO: replace with typesafe Email type
         if(!(email.indexOf("@") > -1 && email.indexOf(".") > -1))
         {
             return "Missing @ or . in the email.";
@@ -35,7 +40,7 @@ class User extends StorageObject
         return "";
     }
 
-    static isPasswordIncorrect(password) {
+    static isPasswordIncorrect(password: string) { // TODO: replace with typesafe Password type
         if(password.length <= 3)
         {
             return 'Password must be longer than 3 characters.';
@@ -44,7 +49,7 @@ class User extends StorageObject
     }
 }
     
-async function createHash(password) {
+async function createHash(password: string) {
     // copied from mdn
     const msgUint8 = new TextEncoder().encode(password);
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8).then();
@@ -52,6 +57,3 @@ async function createHash(password) {
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     return hashHex;
 }
-
-
-export { User };

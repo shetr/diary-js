@@ -1,10 +1,13 @@
-import { LoggedOut } from "./loggedOut.js";
-import { RegisterView } from "../view/register.js";
-import { User } from "../model/user.js";
+import { App } from "./app"
+import { LoggedOut } from "./loggedOut";
+import { RegisterView } from "../view/register";
+import { User } from "../model/user";
 
 class Register extends LoggedOut
 {
-    constructor(app) {
+    private _view: RegisterView;
+
+    constructor(app: App) {
         super(app);
         this._view = new RegisterView();
     }
@@ -13,15 +16,15 @@ class Register extends LoggedOut
         let progress = super.init();
         if(progress) {
             this._view.init();
-            this._view.getForm().addEventListener("submit", (e) => {e.preventDefault(); this._submitForm();});
-            this._view.getEmailInput().addEventListener("keyup", (e) => {e.preventDefault(); this._validateEmail();});
-            this._view.getPassword1Input().addEventListener("blur", (e) => {e.preventDefault(); this._validatePassword1();});
-            this._view.getPassword2Input().addEventListener("blur", (e) => {e.preventDefault(); this._validatePassword2();});
+            this._view.getForm().addEventListener("submit", (e: SubmitEvent) => {e.preventDefault(); this._submitForm();});
+            this._view.getEmailInput().addEventListener("keyup", (e: KeyboardEvent) => {e.preventDefault(); this._validateEmail();});
+            this._view.getPassword1Input().addEventListener("blur", (e: FocusEvent) => {e.preventDefault(); this._validatePassword1();});
+            this._view.getPassword2Input().addEventListener("blur", (e: FocusEvent) => {e.preventDefault(); this._validatePassword2();});
         }
         return progress;
     }
 
-    _submitForm() {
+    private _submitForm() {
         let isValid =
             this._validatePassword2() &&
             this._validatePassword1() &&
@@ -39,7 +42,7 @@ class Register extends LoggedOut
         }
     }
 
-    _validateEmail() {
+    private _validateEmail() {
         this._view.clearErrors();
         let email = this._view.getEmailInput().value;
         let isIncorrect = User.isEmailIncorrect(email);
@@ -54,7 +57,7 @@ class Register extends LoggedOut
         return true;
     }
 
-    _validatePassword1() {
+    private _validatePassword1() {
         this._view.clearErrors();
         let password1 = this._view.getPassword1Input().value;
         let isIncorrect = User.isPasswordIncorrect(password1);
@@ -65,7 +68,7 @@ class Register extends LoggedOut
         return true;
     }
 
-    _validatePassword2() {
+    private _validatePassword2() {
         this._view.clearErrors();
         let password1 = this._view.getPassword1Input().value;
         let password2 = this._view.getPassword2Input().value;
@@ -76,7 +79,7 @@ class Register extends LoggedOut
         return true;
     }
 
-    _isRegistered(email) {
+    private _isRegistered(email: string) {
         let users = this._app.getUsers().getData();
         let isRegistered = false;
         users.forEach((user) => {

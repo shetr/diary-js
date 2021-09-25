@@ -28,7 +28,7 @@ let styles = {
     }
 };
 
-function setStyle(styleName) {
+function setStyle(styleName: "blue" | "green") {
     let root = document.documentElement;
     let style = styles[styleName];
     root.style.setProperty("--header-footer-color", style.headerFooter);

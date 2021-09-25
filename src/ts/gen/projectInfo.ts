@@ -1,16 +1,16 @@
 
 // WARNING: Don't make changes to this file. It will be generated automatically with each build.
 const projectInfo = {
-"buildDate": new Date(2021, 8, 19),
+"buildDate": new Date(2021, 8, 25),
 "packageInfo": {
   "name": "diary-js",
   "homepage": "http://shetr.github.io/diary-js",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Reworked version of zwa-diary-js.",
   "main": "src/ts/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gen": "node scripts/gen-project-info.js src/ts/gen/projectInfo.js",
+    "gen": "node scripts/gen-project-info.js src/ts/gen/projectInfo.ts",
     "css:scss": "node-sass --output-style compressed -o dist src/scss",
     "css:autoprefixer": "postcss -u autoprefixer -r dist/*.css",
     "css:lint": "stylelint src/scss/*.scss --syntax scss || true",

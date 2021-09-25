@@ -1,6 +1,15 @@
 
 class RegisterView
 {
+    private _headlineEl: any;
+    private _mainEl: any;
+    private _registerFormEl: any;
+    private _emailInputEl: any;
+    private _password1InputEl: any;
+    private _password2InputEl: any;
+    private _errorEl: any;
+    private _headline: string;
+
     constructor(){
         this._headlineEl = document.querySelector("header h1");
         this._mainEl = document.querySelector("main");
@@ -47,20 +56,20 @@ class RegisterView
         this._password1InputEl.classList.remove('error');
         this._password2InputEl.classList.remove('error');
     }
-    setEmailError(message) {
+    setEmailError(message: string) {
         this._errorEl.textContent = message;
         this._emailInputEl.classList.add('error');
     }
-    setPassword1Error(message) {
+    setPassword1Error(message: string) {
         this._errorEl.textContent = message;
         this._password1InputEl.classList.add('error');
     }
-    setPassword2Error(message) {
+    setPassword2Error(message: string) {
         this._errorEl.textContent = message;
         this._password2InputEl.classList.add('error');
     }
 
-    _registerForm() {
+    private _registerForm() {
         return String.raw`
             <form method="post" action="">
                 <label>

@@ -1,6 +1,14 @@
 
 class LoginView
 {
+    private _headlineEl: any;
+    private _mainEl: any;
+    private _loginFormEl: any;
+    private _emailInputEl: any;
+    private _passwordInputEl: any;
+    private _errorEl: any;
+    private _headline: string;
+
     constructor(){
         this._headlineEl = document.querySelector("header h1");
         this._mainEl = document.querySelector("main");
@@ -38,11 +46,11 @@ class LoginView
     clearErrors() {
         this._errorEl.textContent = "";
     }
-    setError(message) {
+    setError(message: string) {
         this._errorEl.textContent = message;
     }
 
-    _loginForm() {
+    private _loginForm() {
         return String.raw`
             <form method="post" action="">
                 <label>

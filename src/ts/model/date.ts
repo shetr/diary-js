@@ -1,4 +1,4 @@
-import { StorageObject } from "../control/storageObject.js";
+import { StorageObject } from "../control/storageObject";
 
 let monthNames =
 [
@@ -36,16 +36,18 @@ let dayNamesShots = [
     "Su"
 ];
 
-class CustomDate extends StorageObject
+// TODO: maybe do the attributes typesafe, but that would be hard, so maybe change access rights and maybe mutability
+class CustomDate extends StorageObject 
 {
+    public day = 1;
+    public month = 1;
+    public year = 1;
+
     constructor() {
         super("Date");
-        this.day = 1;
-        this.month = 1;
-        this.year = 1;
     }
 
-    static createDate(day, month, year) {
+    static createDate(day: number, month: number, year: number) {
         let date = new CustomDate();
         date.day = day;
         date.month = month;
@@ -67,7 +69,7 @@ class CustomDate extends StorageObject
     }
 
     getDayInWeekName() {
-        var options = { weekday: 'long'};
+        var options: any = { weekday: 'long'}; // TODO: just double check if it could be resolved without any
         return new Intl.DateTimeFormat('en-US', options).format(this.toDate()).toString();
     }
 
@@ -109,7 +111,7 @@ class CustomDate extends StorageObject
         return this.getDayInWeekName()+" "+String(this.day)+". "+monthNames[this.month]+" "+String(this.year);
     }
 
-    compare(date) {
+    compare(date: CustomDate) {
         return this.day == date.day && this.month == date.month && this.year == date.year;
     }
 

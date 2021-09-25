@@ -1,14 +1,22 @@
+import { Controller } from "./controller";
+
+export type Routes = { [name: string]: Controller };
+export type Route = { name: string, control: Controller };
 
 class Router
 {
-    constructor(routes, defaultRoute) {
+    private _routes: Routes;
+    private _defaultRoute: Route;
+    private _actualRoute: string;
+
+    constructor(routes: Routes, defaultRoute: Route) {
         window.addEventListener('popstate', e => this.route());
         this._routes = routes;
         this._defaultRoute = defaultRoute;
         this._actualRoute = "";
     }
 
-    getActualRoute() {
+    getActualRoute() { // TODO: rethink getter
         return this._actualRoute;
     }
 
@@ -29,7 +37,7 @@ class Router
         }
     }
 
-    routeTo(newRoute) {
+    routeTo(newRoute: string) {
         let routeFound = false;
         for (const [routeName, routeControl] of Object.entries(this._routes)) {
             if(routeName == newRoute) {

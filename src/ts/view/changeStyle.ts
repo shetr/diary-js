@@ -1,6 +1,12 @@
+import { UserStyle } from "../model/user";
 
 class ChangeStyleView
 {
+    private _headlineEl: any;
+    private _mainEl: any;
+    private _changeStyleFormEl: any;
+    private _headline: string;
+
     constructor(){
         this._headlineEl = document.querySelector("header h1");
         this._mainEl = document.querySelector("main");
@@ -10,7 +16,7 @@ class ChangeStyleView
         this._headline = "Change style";
     }
 
-    init(style) {
+    init(style: UserStyle) {
         this._headlineEl.innerHTML = this._headline;
         document.title = this._headline;
         
@@ -23,7 +29,7 @@ class ChangeStyleView
         return this._changeStyleFormEl;
     }
 
-    _changeStyleForm(style) {
+    _changeStyleForm(style: UserStyle) {
         return String.raw`
             <form method="post" action="">
                 <label>

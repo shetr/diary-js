@@ -1,10 +1,13 @@
-import { Controller } from "./controller.js";
-import { LoggedOutView } from "../view/loggedOut.js";
-import { setStyle } from "../view/style.js";
+import { App } from "./app"
+import { Controller } from "./controller";
+import { LoggedOutView } from "../view/loggedOut";
+import { setStyle } from "../view/style";
 
 class LoggedOut extends Controller
 {
-    constructor(app) {
+    private _loggedOutView: LoggedOutView;
+    
+    constructor(app: App) {
         super(app);
         this._loggedOutView = new LoggedOutView();
     }

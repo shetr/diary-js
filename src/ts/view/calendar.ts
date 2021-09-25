@@ -1,13 +1,16 @@
-import { CustomDate } from "../model/date.js";
+import { CustomDate } from "../model/date";
 
 class CalendarView
 {
+    private _calendarWrapperEl: any;
+    private _calendarBodyEl: any;
+
     constructor(){
         this._calendarWrapperEl = null;
         this._calendarBodyEl = null;
     }
 
-    init(date, selectedDay, noteDays) {
+    init(date: CustomDate, selectedDay: number, noteDays: number[]) {
 
         this._calendarWrapperEl = document.getElementById("calendar");
         this._calendarWrapperEl.innerHTML = this._calendar(date);
@@ -16,21 +19,21 @@ class CalendarView
         this._calendarBodyEl.innerHTML = this._calendarBody(date, selectedDay, noteDays);
     }
 
-    selectCell(dayIndex) {
+    selectCell(dayIndex: number) {
         let cell = document.getElementById("day"+String(dayIndex));
         if(cell != null) {
             cell.classList.add("selectedTab");
         }
     }
 
-    deselectCell(dayIndex) {
+    deselectCell(dayIndex: number) {
         let cell = document.getElementById("day"+String(dayIndex));
         if(cell != null) {
             cell.classList.remove("selectedTab");
         }
     }
 
-    _calendar(date) {
+    private _calendar(date: CustomDate) {
         return String.raw`
             <table>
                 <thead>
@@ -64,7 +67,7 @@ class CalendarView
         `;
     }
 
-    _calendarBody(date, selectedDay, noteDays) {
+    private _calendarBody(date: CustomDate, selectedDay: number, noteDays: number[]) {
         let cells = this._calendarCells(date, selectedDay, noteDays);
         return String.raw`
             ${join(cells.map((row) => String.raw`
@@ -75,7 +78,7 @@ class CalendarView
         `;
     }
 
-    _calendarCells(date, selectedDay, noteDays) {
+    private _calendarCells(date: CustomDate, selectedDay: number, noteDays: number[]) {
         let firstDayInMonth = CustomDate.createDate(1, date.month, date.year);
         let dayInWeek = firstDayInMonth.getDayInWeek();
         
@@ -118,7 +121,7 @@ class CalendarView
         return cells;
     }
 
-    _cell(isSelected, cellClass, dayIndex) {
+    private _cell(isSelected: boolean, cellClass: "todayTab" | "noteTab" | "activeCellTab", dayIndex: number) {
         return String.raw`
             <td id="day${dayIndex}" ${isSelected ? 'class ="selectedTab"' : ""}>
                     <input class="${cellClass}" type="submit" name="selectDay" value="${dayIndex}">
@@ -126,7 +129,7 @@ class CalendarView
         `;
     }
 
-    _otherMonthCell() {
+    private _otherMonthCell() {
         return String.raw`
             <td>
                 <div class="deactivatedCellTab">
@@ -140,7 +143,7 @@ class CalendarView
     }
 }
 
-function join(arr) {
+function join(arr: string[]) {
     return arr.reduce((a, b) => a+b, "");
 }
 

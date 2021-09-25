@@ -1,7 +1,10 @@
+import { App } from "./app"
 
 class Controller
 {
-    constructor(app) {
+    protected _app: App;
+
+    constructor(app: App) {
         this._app = app;
     }
 

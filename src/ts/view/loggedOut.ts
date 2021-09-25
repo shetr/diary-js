@@ -1,6 +1,10 @@
 
 class LoggedOutView
 {
+    private _navEl: any;
+    private _userEl: any;
+    private _user: string;
+
     constructor(){
         this._navEl = document.querySelector("header nav");
         this._userEl = document.getElementById("user");
@@ -8,12 +12,12 @@ class LoggedOutView
         this._user = "";
     }
 
-    init(selectedPage) {
+    init(selectedPage: string) {
         this._navEl.innerHTML = this._nav(selectedPage);
         this._userEl.innerHTML = this._user;
     }
 
-    _nav (selectedPage) {
+    private _nav (selectedPage: string) {
         return String.raw`
             <ul>
                 <li>

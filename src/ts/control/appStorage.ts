@@ -1,7 +1,12 @@
+import { User } from "../model/user";
 
 class AppStorage
 {
-    constructor(name, storedClasses) {
+    private name: string;
+    private storedClasses: any; // TODO: somehow remove any
+    private data: User[]; // TODO: is that correct?
+
+    constructor(name: string, storedClasses: any[]) { // TODO: rethink storedClasses any type
         this.name = name;
         this.storedClasses = {};
         this.data = [];
@@ -10,7 +15,7 @@ class AppStorage
         });
     }
 
-    getData() {
+    getData() { // TODO: rethink getter
         return this.data;
     }
 

@@ -1,8 +1,9 @@
-import { LoggedIn } from "./loggedIn.js";
+import { App } from "./app"
+import { LoggedIn } from "./loggedIn";
 
 class Logout extends LoggedIn
 {
-    constructor(app) {
+    constructor(app: App) {
         super(app);
     }
 
