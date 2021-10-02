@@ -24,7 +24,7 @@ class Router
         let routeFound = false;
         const hash = window.location.hash;
         for (const [routeName, routeControl] of Object.entries(this._routes)) {
-            if("#" + routeName == hash) {
+            if("#" + routeName === hash) {
                 this._actualRoute = routeName;
                 if(routeControl.init()) {
                     routeFound = true;
@@ -40,7 +40,7 @@ class Router
     routeTo(newRoute: string) {
         let routeFound = false;
         for (const [routeName, routeControl] of Object.entries(this._routes)) {
-            if(routeName == newRoute) {
+            if(routeName === newRoute) {
                 routeFound = true;
             }
         }

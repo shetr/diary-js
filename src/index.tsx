@@ -5,10 +5,10 @@ import reportWebVitals from './reportWebVitals';
 import { App } from "./control/app";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <header>
+	<React.StrictMode>
+		<header>
 			<nav>
-        <ul>
+				<ul>
 					<li>
 						<a href="#main">Main page</a>
 					</li>
@@ -18,10 +18,10 @@ ReactDOM.render(
 					<li>
 						<a href="#register">Register</a>
 					</li>
-        </ul>
-      </nav>
+				</ul>
+			</nav>
 			<h1>
-				Diary
+			Diary
 			</h1>
 			<div id="user">
 			</div>
@@ -33,8 +33,8 @@ ReactDOM.render(
 
 		<footer>
 		</footer>
-  </React.StrictMode>,
-  document.getElementById('root')
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 
 let app = new App();

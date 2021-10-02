@@ -38,17 +38,17 @@ class Calendar extends Controller
     }
 
     submitForm(submitter: any) { // TODO: replace any with some type
-        if(submitter.name == "selectDay") {
+        if(submitter.name === "selectDay") {
             let selectedDay = parseInt(submitter.value);
             this._view.deselectCell(this._selectedDay);
             this._view.selectCell(selectedDay);
             this._selectedDay = selectedDay;
             this._date.day = selectedDay;
-        } else if(submitter.name == "changeMonthLeft") {
+        } else if(submitter.name === "changeMonthLeft") {
             this._selectedDay = -1;
             this._date.dencrementMonth();
             this._view.init(this._date, this._selectedDay, this.noteDays);
-        } else if(submitter.name == "changeMonthRight") {
+        } else if(submitter.name === "changeMonthRight") {
             this._selectedDay = -1;
             this._date.incrementMonth();
             this._view.init(this._date, this._selectedDay, this.noteDays);

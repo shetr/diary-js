@@ -112,7 +112,7 @@ class CustomDate extends StorageObject
     }
 
     compare(date: CustomDate) {
-        return this.day == date.day && this.month == date.month && this.year == date.year;
+        return this.day === date.day && this.month === date.month && this.year === date.year;
     }
 
     makeCopy() {

@@ -72,7 +72,7 @@ class Register extends LoggedOut
         this._view.clearErrors();
         let password1 = this._view.getPassword1Input().value;
         let password2 = this._view.getPassword2Input().value;
-        if(password1 != password2) {
+        if(password1 !== password2) {
             this._view.setPassword2Error("Passwords do not match.");
             return false;
         }
@@ -83,7 +83,7 @@ class Register extends LoggedOut
         let users = this._app.getUsers().getData();
         let isRegistered = false;
         users.forEach((user) => {
-            if(user.email == email) {
+            if(user.email === email) {
                 isRegistered = true;
             }
         });

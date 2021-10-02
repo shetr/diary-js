@@ -43,7 +43,7 @@ class Login extends LoggedOut
         let users = this._app.getUsers().getData();
         let foundUser = null;
         users.forEach((user) => {
-            if(user.email == email) {
+            if(user.email === email) {
                 foundUser = user;
             }
         });

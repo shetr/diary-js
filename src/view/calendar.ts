@@ -100,10 +100,10 @@ class CalendarView
                 else
                 {
                     let isSelected = false;
-                    if(selectedDay == j) {
+                    if(selectedDay === j) {
                         isSelected = true;
                     }
-                    if(j == currentDate.day && date.month == currentDate.month && date.year == currentDate.year) {
+                    if(j === currentDate.day && date.month === currentDate.month && date.year === currentDate.year) {
                         row.push(this._cell(isSelected, "todayTab", j));
                     }
                     else if(noteDays.includes(j)) {

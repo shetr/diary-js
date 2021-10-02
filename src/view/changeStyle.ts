@@ -36,11 +36,11 @@ class ChangeStyleView
                     Styles: <span class="mandatory">*</span>
                 </label>
                 <label>
-                    <input class="radioBut" required type="radio" name="style" value="blue" ${style == "blue" ? "checked" : ""}>
+                    <input class="radioBut" required type="radio" name="style" value="blue" ${style === "blue" ? "checked" : ""}>
                     Blue style
                 </label>
                 <label>
-                    <input class="radioBut" type="radio" name="style" value="green" ${style == "green" ? "checked" : ""}>
+                    <input class="radioBut" type="radio" name="style" value="green" ${style === "green" ? "checked" : ""}>
                     Green style
                 </label>
                 <input class="submitForm" type="submit" value="Change">

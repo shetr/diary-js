@@ -18,7 +18,7 @@ export class User extends StorageObject // TODO: change visibility and mutabilit
 
     async doesPasswordMatch(password: string) {
         let passwordHash = await createHash(password);
-        return this.passwordHash == passwordHash;
+        return this.passwordHash === passwordHash;
     }
 
     static async createWithPassword(email: string, password: string) {

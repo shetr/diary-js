@@ -24,10 +24,10 @@ class LoggedInView
         return String.raw`
             <ul>
                 <li>
-                    <a href="#diary" ${selectedPage == "diary" ? 'id="pageSelected"' : ""}>Diary</a>
+                    <a href="#diary" ${selectedPage === "diary" ? 'id="pageSelected"' : ""}>Diary</a>
                 </li>
                 <li>
-                    <a href="#changeStyle" ${selectedPage == "changeStyle" ? 'id="pageSelected"' : "" }>Change style</a>
+                    <a href="#changeStyle" ${selectedPage === "changeStyle" ? 'id="pageSelected"' : "" }>Change style</a>
                 </li>
             </ul>
         `;

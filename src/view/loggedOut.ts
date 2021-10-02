@@ -21,13 +21,13 @@ class LoggedOutView
         return String.raw`
             <ul>
                 <li>
-                    <a href="#main" ${selectedPage == "main" ? 'id="pageSelected"' : ""}>Main page</a>
+                    <a href="#main" ${selectedPage === "main" ? 'id="pageSelected"' : ""}>Main page</a>
                 </li>
                 <li>
-                    <a href="#login" ${selectedPage == "login" ? 'id="pageSelected"' : ""}>Login</a>
+                    <a href="#login" ${selectedPage === "login" ? 'id="pageSelected"' : ""}>Login</a>
                 </li>
                 <li>
-                    <a href="#register" ${selectedPage == "register" ? 'id="pageSelected"' : ""}>Register</a>
+                    <a href="#register" ${selectedPage === "register" ? 'id="pageSelected"' : ""}>Register</a>
                 </li>
             </ul>
         `;

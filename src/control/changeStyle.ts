@@ -27,7 +27,7 @@ class ChangeStyle extends LoggedIn
         this._user.style = ((rawStyle)=> {
             if(rawStyle != null) {
                 let rawStyleString = rawStyle.toString();
-                if(rawStyleString == "blue" || rawStyleString == "green") {
+                if(rawStyleString === "blue" || rawStyleString === "green") {
                     return rawStyleString;
                 }
             }

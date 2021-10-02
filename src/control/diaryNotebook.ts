@@ -25,7 +25,7 @@ class DiaryNotebook
 
     update(user: User) {
         let selectedDay = this._calendar.getSelectedDay();
-        if(selectedDay == -1) {
+        if(selectedDay === -1) {
             this._view.clearNote();
         } else {
             let note = this._findNote(user);
@@ -37,9 +37,9 @@ class DiaryNotebook
         }
         let date = this._calendar.getDate().makeCopy();
         this._calendar.noteDays = user.diaryNotes
-            .filter(note => note.date.month == date.month)
+            .filter(note => note.date.month === date.month)
             .map(note => note.date.day);
-        if(this._calendar.noteDays == undefined) {
+        if(this._calendar.noteDays === undefined) {
             this._calendar.noteDays = [];
         }
         this._calendar.update();
@@ -47,15 +47,15 @@ class DiaryNotebook
 
     submitForm(submitter: any, user: User) {  // TODO: replace any with some type
         let selectedDay = this._calendar.getSelectedDay();
-        if(selectedDay == -1) {
+        if(selectedDay === -1) {
             this.update(user);
             return;
         }
 
-        if(submitter.name == "createNote") {
+        if(submitter.name === "createNote") {
             this._view.createNote();
         }
-        else if(submitter.name == "create" || submitter.name == "safeChanges") {
+        else if(submitter.name === "create" || submitter.name === "safeChanges") {
             let date = this._calendar.getDate().makeCopy();
             let name = this._view.getNameInput();
             let description = this._view.getDescriptionInput();
@@ -81,13 +81,13 @@ class DiaryNotebook
             this._app.getUsers().save();
             this.update(user);
         }
-        else if(submitter.name == "change") {
+        else if(submitter.name === "change") {
             let note = this._findNote(user);
             if(note != null) {
                 this._view.changeNote(note.name, note.description);
             }
         }
-        else if(submitter.name == "delete") {
+        else if(submitter.name === "delete") {
             let date = this._calendar.getDate().makeCopy();
             let diaryNotes = user.diaryNotes;
             user.diaryNotes = diaryNotes.filter((diaryNote) => !diaryNote.date.compare(date));
