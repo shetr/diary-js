@@ -20,6 +20,7 @@ const projectInfo = {
     "@types/node": "^12.20.27",
     "@types/react": "^17.0.26",
     "@types/react-dom": "^17.0.9",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",

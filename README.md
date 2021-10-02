@@ -5,8 +5,8 @@ Deployed on [github pages](https://shetr.github.io/diary-js/).
 
 # To-Dos
 
-* move to typescript
 * try React
+* try Gatsby
 * divide scss to multiple files 
 * try setting up working babel (there is some problem with async/await, so no babel currently)
 * maybe try source map ts files for better debuging
