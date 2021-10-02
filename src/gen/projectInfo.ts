@@ -1,4 +1,8 @@
-{
+
+// WARNING: Don't make changes to this file. It will be generated automatically with each build.
+const projectInfo = {
+"buildDate": new Date(2021, 9, 2),
+"packageInfo": {
   "name": "diary-js",
   "homepage": "http://shetr.github.io/diary-js",
   "version": "1.1.4",
@@ -50,3 +54,7 @@
     ]
   }
 }
+
+};
+export { projectInfo };
+        
