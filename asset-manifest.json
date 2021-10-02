@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/diary-js/static/js/main.ab1c9578.chunk.js",
+    "main.js.map": "/diary-js/static/js/main.ab1c9578.chunk.js.map",
+    "runtime-main.js": "/diary-js/static/js/runtime-main.7dbea94b.js",
+    "runtime-main.js.map": "/diary-js/static/js/runtime-main.7dbea94b.js.map",
+    "static/js/2.05892ddd.chunk.js": "/diary-js/static/js/2.05892ddd.chunk.js",
+    "static/js/2.05892ddd.chunk.js.map": "/diary-js/static/js/2.05892ddd.chunk.js.map",
+    "static/js/3.d4c8c33c.chunk.js": "/diary-js/static/js/3.d4c8c33c.chunk.js",
+    "static/js/3.d4c8c33c.chunk.js.map": "/diary-js/static/js/3.d4c8c33c.chunk.js.map",
+    "index.html": "/diary-js/index.html",
+    "static/js/2.05892ddd.chunk.js.LICENSE.txt": "/diary-js/static/js/2.05892ddd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7dbea94b.js",
+    "static/js/2.05892ddd.chunk.js",
+    "static/js/main.ab1c9578.chunk.js"
+  ]
+}
